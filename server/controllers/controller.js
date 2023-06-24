@@ -11,7 +11,7 @@ const getAllMessages = async (req, res, next) => {
   if (!messages) {
     return res.status(404).json({ message: "No messages found" });
   }
-  return res.status(200).json({ messages: "Get Success" });
+  return res.status(200).json({ messages });
 };
 
 const addMessage = async (req, res, next) => {
@@ -44,7 +44,7 @@ const getMessageById = async (req, res, next) => {
   if (!message) {
     return res.status(404).json({ message: "No Message Found" });
   }
-  return res.status(200).json({ message: "Get Success" });
+  return res.status(200).json({ message });
 };
 
 const updateMessage = async (req, res, next) => {
