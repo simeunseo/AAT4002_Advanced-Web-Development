@@ -5,9 +5,11 @@ declare module "styled-components" {
     colors: {
       [key: string]: string;
       primary: string;
+      liner_primary: string;
     };
     fonts: {
       Head1: SerializedStyles;
+      Body1: SerializedStyles;
     };
   }
 }
