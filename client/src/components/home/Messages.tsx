@@ -1,3 +1,4 @@
+import Message from "./Message";
 import { getMessageData } from "@src/utils/axios/home";
 import { useEffect } from "react";
 import { useState } from "react";
@@ -20,7 +21,12 @@ const Messages = () => {
   }, []);
 
   console.log(messageData);
-  return <div>Messages</div>;
+
+  const messageList = messageData.map((item, idx) => {
+    return <Message key={idx} messageData={item} />;
+  });
+
+  return <div>{messageList}</div>;
 };
 
 export default Messages;
