@@ -7,14 +7,14 @@ const colors = {
 
 const fonts = {
   Head1: css`
-    font-family: "LINESeedKR-Bd";
+    font-family: "Gonggan";
     font-size: 2rem;
     font-weight: 700;
   `,
   Body1: css`
-    font-family: "LINESeedKR-Bd";
-    font-size: 1.6;
-    font-weight: 700;
+    font-family: "Gonggan";
+    font-size: 1.6rem;
+    font-weight: 500;
   `,
 };
 
