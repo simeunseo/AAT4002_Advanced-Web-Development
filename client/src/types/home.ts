@@ -6,5 +6,10 @@ export interface MessageServerData {
 }
 
 export interface MessageProps {
+  idx: number;
   messageData: MessageServerData;
+}
+
+export interface MessageGroupProps {
+  messageGroupData: MessageServerData[];
 }
