@@ -12,7 +12,7 @@ const St = {
   Container: styled.div`
     position: fixed;
 
-    width: 100vw;
+    width: 37.5rem;
     height: 100%;
 
     background: ${theme.colors.liner_primary};

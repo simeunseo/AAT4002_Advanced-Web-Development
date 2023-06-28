@@ -4,6 +4,9 @@ import reset from "styled-reset";
 export const GlobalStyle = createGlobalStyle`
 ${reset}
 #root, body, html {
+    display: flex;
+    justify-content: center;
+    
     width:100%;
     height: 100vh;
     margin: 0 auto;
