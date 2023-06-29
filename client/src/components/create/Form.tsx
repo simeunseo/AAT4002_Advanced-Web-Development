@@ -18,10 +18,10 @@ const Form = () => {
 
   return (
     <St.Form>
-      <St.TextArea value={content} onChange={handleContentChange}></St.TextArea>
+      <St.TextArea placeholder="무슨 말을 할까..." value={content} onChange={handleContentChange}></St.TextArea>
       <St.WriterWrapper>
         <St.FormSpan>From.</St.FormSpan>
-        <St.Input value={name} onChange={handleNameChange} />
+        <St.Input placeholder="이름이 뭔가요?" value={name} onChange={handleNameChange} />
       </St.WriterWrapper>
       <St.BtnWrapper>
         <DeclineBtn />
@@ -49,9 +49,13 @@ const St = {
     &:focus {
       outline: none;
     }
+    &::placeholder {
+      color: lightgray;
+    }
   `,
   WriterWrapper: styled.div`
     display: flex;
+    align-items: center;
 
     margin-top: 2rem;
 
@@ -65,6 +69,7 @@ const St = {
   Input: styled.input`
     margin-left: 1rem;
     width: 15rem;
+    padding: 1rem;
 
     border: none;
     border-bottom: 0.3rem solid ${theme.colors.primary};
@@ -73,6 +78,9 @@ const St = {
     ${theme.fonts.Body1};
     &:focus {
       outline: none;
+    }
+    &::placeholder {
+      color: lightgray;
     }
   `,
   BtnWrapper: styled.div`
