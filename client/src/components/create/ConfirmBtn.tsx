@@ -25,7 +25,8 @@ export default ConfirmBtn;
 
 const St = {
   ConfirmBtn: styled.button`
-    padding: 1.2rem 1.1rem;
+    width: 5.4rem;
+    height: 5.4rem;
 
     background: white;
     border: 0.3rem solid ${theme.colors.primary};

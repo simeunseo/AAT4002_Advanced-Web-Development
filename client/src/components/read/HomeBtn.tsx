@@ -19,6 +19,9 @@ export default HomeBtn;
 
 const St = {
   ConfirmBtn: styled.button`
+    width: 5.4rem;
+    height: 5.4rem;
+
     background: none;
     border: none;
 

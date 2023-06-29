@@ -20,7 +20,8 @@ export default DeclineBtn;
 
 const St = {
   DeclineBtn: styled.button`
-    padding: 1.2rem 1.4rem;
+    width: 5.4rem;
+    height: 5.4rem;
 
     background: white;
     border: 0.3rem solid ${theme.colors.primary};
