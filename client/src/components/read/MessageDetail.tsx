@@ -36,8 +36,10 @@ const MessageDetail = () => {
     <St.MessageDetailContainer>
       <Title name={messageData?.name} />
       <St.MessageBox>{messageData?.content}</St.MessageBox>
-      <NextMessageBtn nextMessageId={nextMessageData?._id} />
-      <PrevMessageBtn prevMessageId={prevMessageData?._id} />
+      <St.BtnWrapper>
+        <PrevMessageBtn prevMessageId={prevMessageData?._id} />
+        <NextMessageBtn nextMessageId={nextMessageData?._id} />
+      </St.BtnWrapper>
     </St.MessageDetailContainer>
   );
 };
@@ -63,5 +65,13 @@ const St = {
     flex-direction: column;
     align-items: center;
     text-align: center;
+  `,
+  BtnWrapper: styled.div`
+    display: flex;
+    justify-content: space-between;
+
+    width: 30rem;
+
+    margin-top: 4rem;
   `,
 };

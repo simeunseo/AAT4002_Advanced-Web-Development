@@ -20,7 +20,7 @@ export default NextMessageBtn;
 
 const St = {
   ConfirmBtn: styled.button`
-    padding: 1.2rem 1.1rem;
+    padding: 1.2rem 1.8rem;
 
     background: white;
     border: 0.3rem solid ${theme.colors.primary};
