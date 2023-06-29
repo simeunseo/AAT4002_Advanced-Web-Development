@@ -44,7 +44,29 @@ const getMessageById = async (req, res, next) => {
   if (!message) {
     return res.status(404).json({ message: "No Message Found" });
   }
-  return res.status(200).json({ message });
+
+  //앞뒤 메시지를 확인하기 위한 코드 추가
+  let prevMessage;
+  let nextMessage;
+
+  try {
+    prevMessage = await Message.findOne({ _id: { $lt: message._id } }).sort({
+      _id: -1,
+    });
+    nextMessage = await Message.findOne({ _id: { $gt: message._id } }).sort({
+      _id: 1,
+    });
+  } catch (err) {
+    console.log(err);
+  }
+
+  const response = {
+    prevMessage: prevMessage || null,
+    message: message,
+    nextMessage: nextMessage || null,
+  };
+
+  return res.status(200).json({ response });
 };
 
 const updateMessage = async (req, res, next) => {
