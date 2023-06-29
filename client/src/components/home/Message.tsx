@@ -26,8 +26,11 @@ const Message = (props: MessageProps) => {
       break;
   }
   return (
-    <St.MessageContainer absoluteTop={absoluteTop} absoluteLeft={absoluteLeft}>
+    <St.MessageContainer absolutetop={absoluteTop} absoluteleft={absoluteLeft}>
       <img src={`/src/assets/image/leaf${imgIdx}.svg`} alt="클로버 한잎"></img>
+      <p>
+        {name} {content}
+      </p>
     </St.MessageContainer>
   );
 };
@@ -35,9 +38,9 @@ const Message = (props: MessageProps) => {
 export default Message;
 
 const St = {
-  MessageContainer: styled.div<{ absoluteTop: number; absoluteLeft: number }>`
+  MessageContainer: styled.div<{ absolutetop: number; absoluteleft: number }>`
     position: absolute;
-    top: ${(props) => props.absoluteTop}rem;
-    left: ${(props) => props.absoluteLeft}rem;
+    top: ${(props) => props.absolutetop}rem;
+    left: ${(props) => props.absoluteleft}rem;
   `,
 };

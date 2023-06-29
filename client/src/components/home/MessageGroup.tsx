@@ -3,7 +3,7 @@ import { MessageGroupProps } from "@src/types/home";
 import { styled } from "styled-components";
 const MessageGroup = (props: MessageGroupProps) => {
   const { messageGroupData } = props;
-  console.log(messageGroupData);
+
   const messageList = messageGroupData.map((item, idx) => {
     return <Message key={item._id} messageData={item} idx={idx} />;
   });
