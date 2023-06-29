@@ -4,7 +4,7 @@ import { styled } from "styled-components";
 const Message = (props: MessageProps) => {
   const {
     idx,
-    messageData: { _id, name, content, __v },
+    messageData: { _id },
   } = props;
   const imgIdx = idx % 4;
   let absoluteTop = 0;

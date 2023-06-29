@@ -23,7 +23,7 @@ const St = {
     position: sticky;
     left: 5rem;
     margin-left: 28rem;
-    margin-top: calc(100vh - 45rem);
+    margin-top: 5rem;
     padding: 1.2rem 1.5rem;
 
     background: white;

@@ -16,5 +16,6 @@ const St = {
     height: 100%;
 
     background: ${theme.colors.liner_primary};
+    overflow-y: scroll;
   `,
 };
