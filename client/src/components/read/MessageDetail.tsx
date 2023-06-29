@@ -1,5 +1,3 @@
-import { AnimatePresence, motion } from "framer-motion";
-
 import HomeBtn from "./HomeBtn";
 import { MessageServerData } from "@src/types/home";
 import NextMessageBtn from "./NextMessageBtn";
@@ -64,7 +62,7 @@ const St = {
     ${theme.fonts.Body1}
     overflow-y:scroll;
   `,
-  MessageDetailContainer: styled(motion.div)`
+  MessageDetailContainer: styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;

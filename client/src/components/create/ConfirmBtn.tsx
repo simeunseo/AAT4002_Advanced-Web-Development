@@ -1,5 +1,4 @@
 import { ReactComponent as ConfirmIcon } from "@src/assets/icon/confirm.svg";
-import { confirmIcon } from "@src/assets/icon";
 import { createMessage } from "@src/utils/axios/create";
 import { styled } from "styled-components";
 import theme from "@src/styles/theme";

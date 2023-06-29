@@ -7,7 +7,6 @@ import { useState } from "react";
 
 const Messages = () => {
   const [messageData, setMessageData] = useState<MessageServerData[]>([]);
-
   const getMessageList = async () => {
     try {
       const {
