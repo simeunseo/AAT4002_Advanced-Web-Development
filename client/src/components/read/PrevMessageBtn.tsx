@@ -1,5 +1,5 @@
+import { ReactComponent as LeftIcon } from "@src/assets/icon/left.svg";
 import { Link } from "react-router-dom";
-import { leftIcon } from "@src/assets/icon";
 import { styled } from "styled-components";
 import theme from "@src/styles/theme";
 const PrevMessageBtn = ({ prevMessageId }: { prevMessageId?: string | null }) => {
@@ -7,12 +7,12 @@ const PrevMessageBtn = ({ prevMessageId }: { prevMessageId?: string | null }) =>
     <St.ConfirmBtnContainer>
       {prevMessageId === undefined ? (
         <St.ConfirmBtn type="button">
-          <img src={leftIcon} alt="다음 게시글 이동 버튼"></img>
+          <LeftIcon />
         </St.ConfirmBtn>
       ) : (
         <Link to={`/message/${prevMessageId}`}>
           <St.ConfirmBtn type="button">
-            <img src={leftIcon} alt="다음 게시글 이동 버튼"></img>
+            <LeftIcon />
           </St.ConfirmBtn>
         </Link>
       )}
@@ -33,6 +33,13 @@ const St = {
     border-radius: 50%;
 
     cursor: pointer;
+
+    &:hover {
+      path {
+        stroke: white;
+      }
+      background: ${theme.colors.primary};
+    }
   `,
   ConfirmBtnContainer: styled.div`
     display: flex;

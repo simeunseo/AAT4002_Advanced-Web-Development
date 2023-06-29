@@ -1,5 +1,5 @@
+import { ReactComponent as CreateIcon } from "@src/assets/icon/create.svg";
 import { Link } from "react-router-dom";
-import { createIcon } from "@src/assets/icon";
 import { styled } from "styled-components";
 import theme from "@src/styles/theme";
 
@@ -7,7 +7,7 @@ const CreateBtn = () => {
   return (
     <Link to="/create">
       <St.CreateBtn type="button">
-        <img src={createIcon} alt="게시글 작성 버튼"></img>
+        <CreateIcon />
       </St.CreateBtn>
     </Link>
   );
@@ -28,5 +28,12 @@ const St = {
     border-radius: 50%;
 
     cursor: pointer;
+
+    &:hover {
+      path {
+        fill: white;
+      }
+      background: ${theme.colors.primary};
+    }
   `,
 };

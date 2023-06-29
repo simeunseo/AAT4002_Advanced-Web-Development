@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { rightIcon } from "@src/assets/icon";
+import { ReactComponent as RightIcon } from "@src/assets/icon/right.svg";
 import { styled } from "styled-components";
 import theme from "@src/styles/theme";
 
@@ -8,12 +8,12 @@ const NextMessageBtn = ({ nextMessageId }: { nextMessageId?: string | null }) =>
     <St.ConfirmBtnContainer>
       {nextMessageId === undefined ? (
         <St.ConfirmBtn type="button">
-          <img src={rightIcon} alt="다음 게시글 이동 버튼"></img>
+          <RightIcon />
         </St.ConfirmBtn>
       ) : (
         <Link to={`/message/${nextMessageId}`}>
           <St.ConfirmBtn type="button">
-            <img src={rightIcon} alt="다음 게시글 이동 버튼"></img>
+            <RightIcon />
           </St.ConfirmBtn>
         </Link>
       )}
@@ -34,6 +34,13 @@ const St = {
     border-radius: 50%;
 
     cursor: pointer;
+
+    &:hover {
+      path {
+        stroke: white;
+      }
+      background: ${theme.colors.primary};
+    }
   `,
   ConfirmBtnContainer: styled.div`
     display: flex;

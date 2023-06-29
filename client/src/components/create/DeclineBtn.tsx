@@ -1,4 +1,4 @@
-import { declineIcon } from "@src/assets/icon";
+import { ReactComponent as DeclineIcon } from "@src/assets/icon/decline.svg";
 import { styled } from "styled-components";
 import theme from "@src/styles/theme";
 import { useNavigate } from "react-router-dom";
@@ -11,7 +11,7 @@ const DeclineBtn = () => {
   };
   return (
     <St.DeclineBtn type="button" onClick={createClickHandler}>
-      <img src={declineIcon} alt="게시글 작성 취소 버튼"></img>
+      <DeclineIcon />
     </St.DeclineBtn>
   );
 };
@@ -28,5 +28,12 @@ const St = {
     border-radius: 50%;
 
     cursor: pointer;
+
+    &:hover {
+      path {
+        stroke: white;
+      }
+      background: ${theme.colors.primary};
+    }
   `,
 };

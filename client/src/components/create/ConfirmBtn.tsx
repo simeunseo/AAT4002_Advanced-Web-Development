@@ -1,3 +1,4 @@
+import { ReactComponent as ConfirmIcon } from "@src/assets/icon/confirm.svg";
 import { confirmIcon } from "@src/assets/icon";
 import { createMessage } from "@src/utils/axios/create";
 import { styled } from "styled-components";
@@ -16,7 +17,7 @@ const ConfirmBtn = ({ name, content }: { name: string; content: string }) => {
   };
   return (
     <St.ConfirmBtn type="button" onClick={createClickHandler}>
-      <img src={confirmIcon} alt="게시글 작성 확인 버튼"></img>
+      <ConfirmIcon />
     </St.ConfirmBtn>
   );
 };
@@ -33,5 +34,12 @@ const St = {
     border-radius: 50%;
 
     cursor: pointer;
+
+    &:hover {
+      path {
+        stroke: white;
+      }
+      background: ${theme.colors.primary};
+    }
   `,
 };
