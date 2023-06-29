@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { MessageProps } from "@src/types/home";
 import { styled } from "styled-components";
 const Message = (props: MessageProps) => {
@@ -27,10 +28,9 @@ const Message = (props: MessageProps) => {
   }
   return (
     <St.MessageContainer absolutetop={absoluteTop} absoluteleft={absoluteLeft}>
-      <img src={`/src/assets/image/leaf${imgIdx}.svg`} alt="클로버 한잎"></img>
-      <p>
-        {name} {content}
-      </p>
+      <Link to={`message/${_id}`}>
+        <img src={`/src/assets/image/leaf${imgIdx}.svg`} alt="클로버 한잎"></img>
+      </Link>
     </St.MessageContainer>
   );
 };
