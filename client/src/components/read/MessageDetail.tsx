@@ -1,3 +1,4 @@
+import HomeBtn from "./HomeBtn";
 import { MessageServerData } from "@src/types/home";
 import NextMessageBtn from "./NextMessageBtn";
 import PrevMessageBtn from "./PrevMessageBtn";
@@ -38,6 +39,7 @@ const MessageDetail = () => {
       <St.MessageBox>{messageData?.content}</St.MessageBox>
       <St.BtnWrapper>
         <PrevMessageBtn prevMessageId={prevMessageData?._id} />
+        <HomeBtn />
         <NextMessageBtn nextMessageId={nextMessageData?._id} />
       </St.BtnWrapper>
     </St.MessageDetailContainer>

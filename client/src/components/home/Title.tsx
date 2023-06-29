@@ -2,23 +2,35 @@ import { styled } from "styled-components";
 import theme from "@src/styles/theme";
 
 const Title = () => {
-  return <St.Title>환영합니다</St.Title>;
+  return (
+    <St.TitleContainer>
+      <St.Title>✤ 은서네 깃허브 방명록 ✤</St.Title>
+      <St.Subtitle>@simeunseo</St.Subtitle>
+    </St.TitleContainer>
+  );
 };
 
 export default Title;
 
 const St = {
-  Title: styled.header`
+  TitleContainer: styled.div`
     margin: 3.5rem;
-    margin-bottom: 7rem;
-    padding: 1.4rem;
+    margin-bottom: 5rem;
+    padding: 2rem;
 
     text-align: center;
 
     background: white;
-    color: ${theme.colors.primary};
     border: 0.3rem solid ${theme.colors.primary};
-
+  `,
+  Title: styled.header`
     ${theme.fonts.Head1};
+    color: ${theme.colors.primary};
+  `,
+  Subtitle: styled.h2`
+    margin-top: 1.5rem;
+
+    ${theme.fonts.Body1};
+    color: ${theme.colors.primary};
   `,
 };
