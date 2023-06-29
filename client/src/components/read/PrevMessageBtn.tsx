@@ -1,19 +1,21 @@
+import { Link } from "react-router-dom";
 import { leftIcon } from "@src/assets/icon";
 import { styled } from "styled-components";
 import theme from "@src/styles/theme";
-import { useNavigate } from "react-router-dom";
-
 const PrevMessageBtn = ({ prevMessageId }: { prevMessageId?: string | null }) => {
-  const navigate = useNavigate();
-
-  const createClickHandler = () => {
-    prevMessageId && navigate(`/message/${prevMessageId}`);
-  };
   return (
     <St.ConfirmBtnContainer>
-      <St.ConfirmBtn type="button" onClick={createClickHandler}>
-        <img src={leftIcon} alt="이전 게시글 이동 버튼"></img>
-      </St.ConfirmBtn>
+      {prevMessageId === undefined ? (
+        <St.ConfirmBtn type="button">
+          <img src={leftIcon} alt="다음 게시글 이동 버튼"></img>
+        </St.ConfirmBtn>
+      ) : (
+        <Link to={`/message/${prevMessageId}`}>
+          <St.ConfirmBtn type="button">
+            <img src={leftIcon} alt="다음 게시글 이동 버튼"></img>
+          </St.ConfirmBtn>
+        </Link>
+      )}
       {prevMessageId === undefined ? <span>첫번째</span> : undefined}
     </St.ConfirmBtnContainer>
   );

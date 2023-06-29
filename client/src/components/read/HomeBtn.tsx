@@ -1,17 +1,14 @@
+import { Link } from "react-router-dom";
 import { homeIcon } from "@src/assets/icon";
 import { styled } from "styled-components";
-import { useNavigate } from "react-router-dom";
 
 const HomeBtn = () => {
-  const navigate = useNavigate();
-
-  const createClickHandler = () => {
-    navigate(`/`);
-  };
   return (
-    <St.ConfirmBtn type="button" onClick={createClickHandler}>
-      <img src={homeIcon} alt="홈 이동 버튼"></img>
-    </St.ConfirmBtn>
+    <Link to="/">
+      <St.ConfirmBtn type="button">
+        <img src={homeIcon} alt="홈 이동 버튼"></img>
+      </St.ConfirmBtn>
+    </Link>
   );
 };
 

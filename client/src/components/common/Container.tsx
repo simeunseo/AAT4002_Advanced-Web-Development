@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import { styled } from "styled-components";
 import theme from "@src/styles/theme";
 
@@ -9,7 +10,7 @@ const Container = ({ children }: React.PropsWithChildren) => {
 export default Container;
 
 const St = {
-  Container: styled.div`
+  Container: styled(motion.div)`
     position: fixed;
 
     width: 37.5rem;
