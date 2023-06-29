@@ -48,10 +48,12 @@ const St = {
 
     resize: none;
     ${theme.fonts.Body1}
+    line-height:38rem;
   `,
   MessageDetailContainer: styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
   `,
 };
