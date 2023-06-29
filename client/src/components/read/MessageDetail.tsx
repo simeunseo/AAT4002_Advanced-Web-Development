@@ -1,5 +1,6 @@
 import { MessageServerData } from "@src/types/home";
-import RightBtn from "./RightBtn";
+import NextMessageBtn from "./NextMessageBtn";
+import PrevMessageBtn from "./PrevMessageBtn";
 import Title from "./Title";
 import { readMessageData } from "@src/utils/axios/read";
 import { styled } from "styled-components";
@@ -35,7 +36,8 @@ const MessageDetail = () => {
     <St.MessageDetailContainer>
       <Title name={messageData?.name} />
       <St.MessageBox>{messageData?.content}</St.MessageBox>
-      <RightBtn nextMessageId={nextMessageData?._id} />
+      <NextMessageBtn nextMessageId={nextMessageData?._id} />
+      <PrevMessageBtn prevMessageId={prevMessageData?._id} />
     </St.MessageDetailContainer>
   );
 };

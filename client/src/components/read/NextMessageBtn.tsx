@@ -3,7 +3,7 @@ import { styled } from "styled-components";
 import theme from "@src/styles/theme";
 import { useNavigate } from "react-router-dom";
 
-const RightBtn = ({ nextMessageId }: { nextMessageId?: string }) => {
+const NextMessageBtn = ({ nextMessageId }: { nextMessageId?: string | null }) => {
   const navigate = useNavigate();
 
   const createClickHandler = () => {
@@ -16,7 +16,7 @@ const RightBtn = ({ nextMessageId }: { nextMessageId?: string }) => {
   );
 };
 
-export default RightBtn;
+export default NextMessageBtn;
 
 const St = {
   ConfirmBtn: styled.button`
