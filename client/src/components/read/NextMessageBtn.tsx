@@ -14,13 +14,7 @@ const NextMessageBtn = ({ nextMessageId }: { nextMessageId?: string | null }) =>
       <St.ConfirmBtn type="button" onClick={createClickHandler}>
         <img src={rightIcon} alt="다음 게시글 이동 버튼"></img>
       </St.ConfirmBtn>
-      {nextMessageId || (
-        <span>
-          마지막
-          <br />
-          메시지
-        </span>
-      )}
+      {nextMessageId === undefined ? <span>마지막</span> : undefined}
     </St.ConfirmBtnContainer>
   );
 };
