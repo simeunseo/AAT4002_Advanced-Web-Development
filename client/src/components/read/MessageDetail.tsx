@@ -1,4 +1,5 @@
 import { MessageServerData } from "@src/types/home";
+import RightBtn from "./RightBtn";
 import Title from "./Title";
 import { readMessageData } from "@src/utils/axios/read";
 import { styled } from "styled-components";
@@ -10,13 +11,17 @@ import { useState } from "react";
 const MessageDetail = () => {
   const id = useParams().id;
   const [messageData, setMessageData] = useState<MessageServerData>();
+  const [prevMessageData, setPrevMessageData] = useState<MessageServerData>();
+  const [nextMessageData, setNextMessageData] = useState<MessageServerData>();
 
   const getMessageDetail = async (id?: string) => {
     try {
       const {
-        data: { message },
+        data: { response },
       } = await readMessageData(id);
-      setMessageData(message);
+      setMessageData(response.message);
+      setPrevMessageData(response.prevMessage);
+      setNextMessageData(response.nextMessage);
     } catch (e) {
       console.log(e);
     }
@@ -30,6 +35,7 @@ const MessageDetail = () => {
     <St.MessageDetailContainer>
       <Title name={messageData?.name} />
       <St.MessageBox>{messageData?.content}</St.MessageBox>
+      <RightBtn nextMessageId={nextMessageData?._id} />
     </St.MessageDetailContainer>
   );
 };
@@ -48,7 +54,7 @@ const St = {
 
     resize: none;
     ${theme.fonts.Body1}
-    line-height:38rem;
+    overflow-y:scroll;
   `,
   MessageDetailContainer: styled.div`
     display: flex;

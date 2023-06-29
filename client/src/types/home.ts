@@ -1,5 +1,5 @@
 export interface MessageServerData {
-  _id: string;
+  _id: string | null;
   name: string;
   content: string;
   __v: number;
