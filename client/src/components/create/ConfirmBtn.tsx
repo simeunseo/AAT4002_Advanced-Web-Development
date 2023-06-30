@@ -1,3 +1,6 @@
+import "react-toastify/dist/ReactToastify.css";
+
+import { ToastContainer, toast } from "react-toastify";
 import { useRecoilState, useSetRecoilState } from "recoil";
 
 import { ReactComponent as ConfirmIcon } from "@src/assets/icon/confirm.svg";
@@ -14,20 +17,30 @@ const ConfirmBtn = ({ name, content }: { name: string; content: string }) => {
   const setToastOpen = useSetRecoilState(toastOpenState);
 
   const createClickHandler = () => {
-    createMessage({
-      name: name,
-      content: content,
-    });
-    setTotalNum(totalNum + 1);
+    const notifyContentInput = () => toast("내용을 입력해주세요!");
+    const notifyNameInput = () => toast("이름을 입력해주세요!");
 
-    navigate(`/`);
-    if ((totalNum + 1) % 4 === 0) {
-      setToastOpen(true);
+    if (content == "") {
+      notifyContentInput();
+    } else if (name == "") {
+      notifyNameInput();
+    } else {
+      createMessage({
+        name: name,
+        content: content,
+      });
+      setTotalNum(totalNum + 1);
+
+      navigate(`/`);
+      if ((totalNum + 1) % 4 === 0) {
+        setToastOpen(true);
+      }
     }
   };
 
   return (
     <>
+      <St.ToastContainer position="top-center" pauseOnHover autoClose={1000} limit={1} />
       <St.ConfirmBtn type="button" onClick={createClickHandler}>
         <ConfirmIcon />
       </St.ConfirmBtn>
@@ -53,6 +66,22 @@ const St = {
         stroke: white;
       }
       background: ${theme.colors.primary};
+    }
+  `,
+  ToastContainer: styled(ToastContainer)`
+    --toastify-text-color-light: white;
+    --toastify-color-progress-light: none;
+    --toastify-toast-width: 26rem;
+    & .Toastify__toast {
+      box-shadow: none;
+      text-align: center;
+      ${theme.fonts.Head1}
+      margin-top:1rem;
+      border-radius: 0;
+      background: ${theme.colors.primary};
+    }
+    & button {
+      display: none;
     }
   `,
 };
