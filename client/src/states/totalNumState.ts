@@ -13,10 +13,7 @@ export const messageDataState = atom({
   }),
 });
 
-export const totalNumSelector = selector({
-  key: "totalNumSelector",
-  get: ({ get }) => {
-    const messageData = get(messageDataState);
-    return messageData.length;
-  },
+export const totalNumState = atom({
+  key: "totalNumState",
+  default: 0,
 });

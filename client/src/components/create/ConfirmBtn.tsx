@@ -2,16 +2,22 @@ import { ReactComponent as ConfirmIcon } from "@src/assets/icon/confirm.svg";
 import { createMessage } from "@src/utils/axios/create";
 import { styled } from "styled-components";
 import theme from "@src/styles/theme";
+import { totalNumState } from "@src/states/totalNumState";
 import { useNavigate } from "react-router-dom";
+import { useRecoilState } from "recoil";
 
 const ConfirmBtn = ({ name, content }: { name: string; content: string }) => {
   const navigate = useNavigate();
+  const [totalNum, setTotalNum] = useRecoilState(totalNumState);
+  console.log(totalNum);
 
   const createClickHandler = () => {
     createMessage({
       name: name,
       content: content,
     });
+    setTotalNum(totalNum + 1);
+
     navigate(`/`);
   };
   return (
