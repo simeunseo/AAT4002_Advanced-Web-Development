@@ -37,7 +37,7 @@ const St = {
   Form: styled.form``,
   TextArea: styled.textarea`
     width: 30rem;
-    height: 45rem;
+    height: 40rem;
     padding: 2.5rem;
 
     border: 0.3rem solid ${theme.colors.primary};
