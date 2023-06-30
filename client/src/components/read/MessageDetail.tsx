@@ -68,7 +68,8 @@ const St = {
 
     resize: none;
     ${theme.fonts.Body1}
-    overflow-y:scroll;
+    line-height: 2.5rem;
+    overflow-y: scroll;
   `,
   MessageDetailContainer: styled.div`
     display: flex;
