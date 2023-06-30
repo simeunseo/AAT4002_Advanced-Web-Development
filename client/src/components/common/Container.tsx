@@ -13,7 +13,10 @@ const St = {
   Container: styled(motion.div)`
     position: fixed;
 
-    width: 37.5rem;
+    @media screen and (min-width: 500px) {
+      width: 37.5rem;
+    }
+    width: 100vw;
     height: 100%;
 
     background: ${theme.colors.liner_primary};
