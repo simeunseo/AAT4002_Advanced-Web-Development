@@ -4,8 +4,6 @@ import Messages from "@src/components/home/Messages";
 import Title from "@src/components/home/Title";
 
 const Home = () => {
-  // const totalNum = useRecoilValue(totalNumSelector);
-
   return (
     <>
       <Container>

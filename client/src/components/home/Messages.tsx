@@ -1,7 +1,13 @@
+import "react-toastify/dist/ReactToastify.css";
+
+import { ToastContainer, toast } from "react-toastify";
+
 import MessageGroup from "./MessageGroup";
 import { MessageServerData } from "@src/types/home";
 import { getMessageData } from "@src/utils/axios/home";
 import { styled } from "styled-components";
+import theme from "@src/styles/theme";
+import { toastOpenState } from "@src/states/toastOpenState";
 import { totalNumState } from "@src/states/totalNumState";
 import { useEffect } from "react";
 import { useRecoilState } from "recoil";
@@ -10,6 +16,7 @@ import { useState } from "react";
 const Messages = () => {
   const [messageData, setMessageData] = useState<MessageServerData[]>([]);
   const [totalNum, setTotalNum] = useRecoilState(totalNumState);
+  const [toastOpen, setToastOpen] = useRecoilState(toastOpenState);
 
   const getMessageList = async () => {
     try {
@@ -17,7 +24,6 @@ const Messages = () => {
         data: { messages },
       } = await getMessageData();
       setMessageData(messages);
-      setTotalNum(messageData.length);
     } catch (e) {
       console.log(e);
     }
@@ -27,7 +33,9 @@ const Messages = () => {
     getMessageList();
   }, []);
 
-  console.log(totalNum);
+  useEffect(() => {
+    setTotalNum(messageData.length);
+  }, [messageData]);
 
   const messageGroupData = [];
   const groupSize = 4;
@@ -40,7 +48,20 @@ const Messages = () => {
     return <MessageGroup key={idx} messageGroupData={item} />;
   });
 
-  return <St.MessagesContainer>{messageGroupList}</St.MessagesContainer>;
+  const notify = () => toast("행운을 빌어요!");
+  if (toastOpen) {
+    notify();
+    setTimeout(() => {
+      setToastOpen(false);
+    }, 2000);
+  }
+
+  return (
+    <>
+      {toastOpen && <St.ToastContainer position="bottom-center" pauseOnHover autoClose={1000} limit={1} />}
+      <St.MessagesContainer>{messageGroupList}</St.MessagesContainer>
+    </>
+  );
 };
 
 export default Messages;
@@ -52,6 +73,23 @@ const St = {
     flex-wrap: wrap;
     gap: 3rem;
     padding: 0 4.5rem;
+    margin-bottom: 3rem;
     width: 36.6rem;
+  `,
+  ToastContainer: styled(ToastContainer)`
+    --toastify-text-color-light: white;
+    --toastify-color-progress-light: none;
+    --toastify-toast-width: 20rem;
+    & .Toastify__toast {
+      box-shadow: none;
+      text-align: center;
+      ${theme.fonts.Head1}
+      margin-top:1rem;
+      border-radius: 0;
+      background: ${theme.colors.primary};
+    }
+    & button {
+      display: none;
+    }
   `,
 };

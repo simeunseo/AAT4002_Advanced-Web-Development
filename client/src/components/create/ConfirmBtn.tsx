@@ -2,6 +2,7 @@ import { ReactComponent as ConfirmIcon } from "@src/assets/icon/confirm.svg";
 import { createMessage } from "@src/utils/axios/create";
 import { styled } from "styled-components";
 import theme from "@src/styles/theme";
+import { toastOpenState } from "@src/states/toastOpenState";
 import { totalNumState } from "@src/states/totalNumState";
 import { useNavigate } from "react-router-dom";
 import { useRecoilState } from "recoil";
@@ -9,7 +10,7 @@ import { useRecoilState } from "recoil";
 const ConfirmBtn = ({ name, content }: { name: string; content: string }) => {
   const navigate = useNavigate();
   const [totalNum, setTotalNum] = useRecoilState(totalNumState);
-  console.log(totalNum);
+  const [toastOpen, setToastOpen] = useRecoilState(toastOpenState);
 
   const createClickHandler = () => {
     createMessage({
@@ -19,11 +20,18 @@ const ConfirmBtn = ({ name, content }: { name: string; content: string }) => {
     setTotalNum(totalNum + 1);
 
     navigate(`/`);
+    console.log(totalNum);
+    if ((totalNum + 1) % 4 === 0) {
+      setToastOpen(true);
+    }
   };
+
   return (
-    <St.ConfirmBtn type="button" onClick={createClickHandler}>
-      <ConfirmIcon />
-    </St.ConfirmBtn>
+    <>
+      <St.ConfirmBtn type="button" onClick={createClickHandler}>
+        <ConfirmIcon />
+      </St.ConfirmBtn>
+    </>
   );
 };
 
