@@ -15,9 +15,11 @@ const MessageDetail = () => {
   const [messageData, setMessageData] = useState<MessageServerData>();
   const [prevMessageData, setPrevMessageData] = useState<MessageServerData>();
   const [nextMessageData, setNextMessageData] = useState<MessageServerData>();
+  const [loading, setLoading] = useState(false);
 
   const getMessageDetail = async (id?: string) => {
     try {
+      setLoading(true);
       const {
         data: { response },
       } = await readMessageData(id);
@@ -27,6 +29,7 @@ const MessageDetail = () => {
     } catch (e) {
       console.log(e);
     }
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -36,7 +39,12 @@ const MessageDetail = () => {
   return (
     <St.MessageDetailContainer>
       <Title name={messageData?.name} />
-      <St.MessageBox>{messageData?.content}</St.MessageBox>
+      {loading ? (
+        <St.LoadingMessage>로딩중...✤</St.LoadingMessage>
+      ) : (
+        <St.MessageBox>{messageData?.content}</St.MessageBox>
+      )}
+
       <St.BtnWrapper>
         <PrevMessageBtn prevMessageId={prevMessageData?._id} />
         <HomeBtn />
@@ -75,5 +83,18 @@ const St = {
     width: 30rem;
 
     margin-top: 4rem;
+  `,
+  LoadingMessage: styled.span`
+    width: 30rem;
+    height: 45rem;
+    padding: 2.5rem;
+
+    border: 0.3rem solid ${theme.colors.primary};
+    color: ${theme.colors.primary};
+    background: white;
+
+    resize: none;
+    ${theme.fonts.Body1}
+    overflow-y:scroll;
   `,
 };
