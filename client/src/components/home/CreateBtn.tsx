@@ -18,7 +18,7 @@ export default CreateBtn;
 const St = {
   CreateBtn: styled.button`
     position: sticky;
-    left: 27.6rem;
+    left: calc(100vw - 10rem);
     bottom: 4rem;
 
     padding: 1.2rem 1.5rem;
