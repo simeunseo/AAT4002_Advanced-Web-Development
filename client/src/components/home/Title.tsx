@@ -1,11 +1,14 @@
+import { Link } from "react-router-dom";
 import { styled } from "styled-components";
 import theme from "@src/styles/theme";
-
 const Title = () => {
   return (
     <St.TitleContainer>
       <St.Title>✤ 은서네 깃허브 방명록 ✤</St.Title>
-      <St.Subtitle>@simeunseo</St.Subtitle>
+
+      <St.Subtitle>
+        <Link to="https://github.com/simeunseo">@simeunseo</Link>
+      </St.Subtitle>
     </St.TitleContainer>
   );
 };
@@ -32,5 +35,16 @@ const St = {
 
     ${theme.fonts.Body1};
     color: ${theme.colors.primary};
+
+    cursor: pointer;
+
+    a {
+      text-decoration: none;
+      color: ${theme.colors.primary};
+    }
+
+    &:hover {
+      text-decoration: underline;
+    }
   `,
 };
