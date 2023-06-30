@@ -1,6 +1,7 @@
 import "react-toastify/dist/ReactToastify.css";
 
 import { ToastContainer, toast } from "react-toastify";
+import { useRecoilState, useSetRecoilState } from "recoil";
 
 import MessageGroup from "./MessageGroup";
 import { MessageServerData } from "@src/types/home";
@@ -10,12 +11,11 @@ import theme from "@src/styles/theme";
 import { toastOpenState } from "@src/states/toastOpenState";
 import { totalNumState } from "@src/states/totalNumState";
 import { useEffect } from "react";
-import { useRecoilState } from "recoil";
 import { useState } from "react";
 
 const Messages = () => {
   const [messageData, setMessageData] = useState<MessageServerData[]>([]);
-  const [totalNum, setTotalNum] = useRecoilState(totalNumState);
+  const setTotalNum = useSetRecoilState(totalNumState);
   const [toastOpen, setToastOpen] = useRecoilState(toastOpenState);
 
   const getMessageList = async () => {
