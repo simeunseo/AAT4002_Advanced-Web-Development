@@ -5,11 +5,11 @@ import theme from "@src/styles/theme";
 
 const CreateBtn = () => {
   return (
-    <St.CreateBtn type="button">
-      <Link to="/create">
+    <Link to="/create">
+      <St.CreateBtn type="button">
         <CreateIcon />
-      </Link>
-    </St.CreateBtn>
+      </St.CreateBtn>
+    </Link>
   );
 };
 
