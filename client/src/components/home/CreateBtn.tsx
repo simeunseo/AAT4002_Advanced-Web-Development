@@ -2,8 +2,13 @@ import { ReactComponent as CreateIcon } from "@src/assets/icon/create.svg";
 import { Link } from "react-router-dom";
 import { styled } from "styled-components";
 import theme from "@src/styles/theme";
+import { totalNumSelector } from "@src/states/totalNumState";
+import { useRecoilValue } from "recoil";
 
 const CreateBtn = () => {
+  const totalNum = useRecoilValue(totalNumSelector);
+  console.log(totalNum);
+
   return (
     <Link to="/create">
       <St.CreateBtn type="button">
