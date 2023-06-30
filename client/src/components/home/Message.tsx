@@ -1,6 +1,11 @@
+import { ReactComponent as Leaf0 } from "@src/assets/image/leaf0.svg";
+import { ReactComponent as Leaf1 } from "@src/assets/image/leaf1.svg";
+import { ReactComponent as Leaf2 } from "@src/assets/image/leaf2.svg";
+import { ReactComponent as Leaf3 } from "@src/assets/image/leaf3.svg";
 import { Link } from "react-router-dom";
 import { MessageProps } from "@src/types/home";
 import { styled } from "styled-components";
+
 const Message = (props: MessageProps) => {
   const {
     idx,
@@ -28,9 +33,7 @@ const Message = (props: MessageProps) => {
   }
   return (
     <St.MessageContainer absolutetop={absoluteTop} absoluteleft={absoluteLeft}>
-      <Link to={`message/${_id}`}>
-        <img src={`/src/assets/image/leaf${imgIdx}.svg`} alt="클로버 한잎"></img>
-      </Link>
+      <Link to={`message/${_id}`}>{{ 0: <Leaf0 />, 1: <Leaf1 />, 2: <Leaf2 />, 3: <Leaf3 /> }[imgIdx]}</Link>
     </St.MessageContainer>
   );
 };

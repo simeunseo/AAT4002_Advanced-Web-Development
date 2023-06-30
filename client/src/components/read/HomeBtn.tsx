@@ -1,12 +1,12 @@
+import { ReactComponent as HomeIcon } from "@src/assets/icon/home.svg";
 import { Link } from "react-router-dom";
-import { homeIcon } from "@src/assets/icon";
 import { styled } from "styled-components";
 
 const HomeBtn = () => {
   return (
     <Link to="/">
       <St.ConfirmBtn type="button">
-        <img src={homeIcon} alt="홈 이동 버튼"></img>
+        <HomeIcon />
       </St.ConfirmBtn>
     </Link>
   );
