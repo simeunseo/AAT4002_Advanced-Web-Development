@@ -40,11 +40,11 @@ export default Messages;
 
 const St = {
   MessagesContainer: styled.main`
+    margin: auto;
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
     gap: 3rem;
-
     padding: 0 4.5rem;
+    width: 36.6rem;
   `,
 };
