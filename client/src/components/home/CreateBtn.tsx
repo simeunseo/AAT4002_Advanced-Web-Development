@@ -19,6 +19,9 @@ const St = {
   CreateBtn: styled.button`
     position: sticky;
     left: calc(100vw - 10rem);
+    @media screen and (min-width: 500px) {
+      left: 27.8rem;
+    }
     bottom: 4rem;
 
     padding: 1.2rem 1.5rem;
