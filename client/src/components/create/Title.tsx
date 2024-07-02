@@ -10,7 +10,7 @@ export default Title;
 const St = {
   Title: styled.header`
     margin: 3.5rem;
-    margin-bottom: 3rem;
+    margin-bottom: 3.5rem;
     padding: 1.4rem;
 
     text-align: center;

@@ -18,7 +18,7 @@ export default Title;
 const St = {
   TitleContainer: styled.div`
     margin: 3.5rem;
-    margin-bottom: 5rem;
+    margin-bottom: 2rem;
     padding: 2rem;
 
     text-align: center;

@@ -16,6 +16,11 @@ const fonts = {
     font-size: 1.6rem;
     font-weight: 500;
   `,
+  Body2: css`
+    font-family: "Gonggan";
+    font-size: 1.4rem;
+    font-weight: 400;
+  `,
 };
 
 const theme: DefaultTheme = {
