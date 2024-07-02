@@ -48,14 +48,19 @@ const MessageDetail = () => {
       ) : (
         <>
           <St.MessageBox>{messageData?.content}</St.MessageBox>
-          {replyData && (
-            <>
-              <St.ReplyTitle>
-                <St.StyledNoticeIcon />
-                주인장 심은서의 답장
-              </St.ReplyTitle>
-              <St.ReplyBox>{replyData.reply}</St.ReplyBox>
-            </>
+
+          <St.ReplyTitle>
+            <St.StyledNoticeIcon />
+            주인장 심은서의 답장
+          </St.ReplyTitle>
+          {!replyData ? (
+            <St.NoReplyBox>
+              아직 답장이 없어요!
+              <br />
+              조금만 기다려주세요 :)
+            </St.NoReplyBox>
+          ) : (
+            <St.ReplyBox>{replyData.reply}</St.ReplyBox>
           )}
         </>
       )}
@@ -103,6 +108,7 @@ const St = {
     width: 30rem;
     height: 30rem;
     padding: 2.5rem;
+    margin-bottom: 17.6rem;
 
     border: 0.3rem solid ${theme.colors.primary};
     color: ${theme.colors.primary};
@@ -113,6 +119,9 @@ const St = {
     overflow-y:scroll;
   `,
   ReplyBox: styled.section`
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 30rem;
     height: 10rem;
     padding: 2.5rem;
@@ -120,6 +129,23 @@ const St = {
     border: 0.3rem solid ${theme.colors.primary};
     color: ${theme.colors.primary};
     background: white;
+
+    resize: none;
+    ${theme.fonts.Body1}
+    line-height: 2.5rem;
+    overflow-y: scroll;
+  `,
+  NoReplyBox: styled.section`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30rem;
+    height: 10rem;
+    padding: 2.5rem;
+
+    border: 0.3rem solid ${theme.colors.primary};
+    color: white;
+    background: ${theme.colors.primary};
 
     resize: none;
     ${theme.fonts.Body1}
