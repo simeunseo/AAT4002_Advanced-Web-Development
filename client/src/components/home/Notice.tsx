@@ -53,7 +53,6 @@ const NoticeText = styled.p`
   text-align: center;
   color: white;
   white-space: nowrap;
-  overflow-x: scroll;
   animation: ${scrollText} 10s linear infinite;
 `;
 
